@@ -15,6 +15,9 @@
 :Department: Urban Affairs and Planning
 :Institute: Virginia Tech
 :Address: Architecture Annex, 140 Otey St, Blacksburg, VA 24061
+:Google Scholar: `Kaidi Wang`_ 
+
+.. _Kaidi Wang: https://scholar.google.com/citations?user=qqHVNNcAAAAJ&hl=en
 
 I am a Ph.D. student in Urban Affairs & Planning at Virginia Tech. I transferred from Computer Science after a year in CS department. I received a M.S. degree in Information Security from Beijing University of Posts and Telecommunications in 2017, the B.S. degree Information Security from Xidian University in 2014. :download:`Download my CV <_static/Kaidi-cv/Kaidi.pdf>`
 
