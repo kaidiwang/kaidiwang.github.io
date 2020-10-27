@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: fibra-light
+font link: https://www.fontspring.com/fonts/los-andes-type/fibra/fibra-light
+font author: Los Andes Type
+font author site: https://losandestype.myportfolio.com/
+
+
+icon designer: Alfredo @ IconsAlfredo.com
+icon designer link: /AlfredoCreates
+        
+{"bg":"#BB4E47","icon":"#ECEEF0","font":"#ECEEF0","slogan":"#ffffff"}
+      
