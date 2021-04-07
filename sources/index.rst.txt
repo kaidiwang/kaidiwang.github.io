@@ -79,7 +79,7 @@ Refereed Journal Articles
 
 **Wang, K.**, & Zhang, W. Parking Space Optimization in the Era of Private Automated Vehicles. Transportation Research Record. (Under Review)
 
-**Wang, K.**, W. Zhang. The Role of Urban Forms on the Performance of Shared Automated Vehicles (SAVs). Transportation Research Part D. (Accepted)
+**Wang, K.**, & Zhang, W. (2021). The role of urban form in the performance of shared automated vehicles. Transportation Research Part D: Transport and Environment, 93, 102744.
 
 Zhang, W., **Wang, K.**, Wang, S., Jiang, Z., Mondschein, A., & Noland, R. B. (2020). Synthesizing neighborhood preferences for automated vehicles. *Transportation Research Part C: Emerging Technologies, 120, 102774*.
 
