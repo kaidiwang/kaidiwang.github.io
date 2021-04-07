@@ -77,20 +77,20 @@ Publications
 Refereed Journal Articles
 .........................
 
-**Wang, K.**, & Zhang, W.\mbox{*} Parking Space Optimization in the Era of Private Automated Vehicles. Transportation Research Record. (Under Review)
+**Wang, K.**, & Zhang, W. Parking Space Optimization in the Era of Private Automated Vehicles. Transportation Research Record. (Under Review)
 
-Lim, T.\mbox{*}, & **Wang, K.** Comparison of machine learning algorithms for emulating a complex hydrologic model for spatial land use decision support. Computers and Geosciences. (Under review)
+Lim, T., & **Wang, K.** Comparison of machine learning algorithms for emulating a complex hydrologic model for spatial land use decision support. Computers and Geosciences. (Under Review)
 
-**Wang, K.**, & Zhang, W.\mbox{*} (2021). The role of urban form in the performance of shared automated vehicles. Transportation Research Part D: Transport and Environment, 93, 102744.
+**Wang, K.**, & Zhang, W. (2021). The role of urban form in the performance of shared automated vehicles. Transportation Research Part D: Transport and Environment, 93, 102744.
 
-Zhang, W.\mbox{*}, **Wang, K.**, Wang, S., Jiang, Z., Mondschein, A., & Noland, R. B. (2020). Synthesizing neighborhood preferences for automated vehicles. *Transportation Research Part C: Emerging Technologies, 120, 102774*.
+Zhang, W., **Wang, K.**, Wang, S., Jiang, Z., Mondschein, A., & Noland, R. B. (2020). Synthesizing neighborhood preferences for automated vehicles. *Transportation Research Part C: Emerging Technologies, 120, 102774*.
 
-Zhang, W.\mbox{*}, & **Wang, K.** (2020). Parking futures: shared automated vehicles and parking demand reduction trajectories in Atlanta. *Land Use Policy, 91, 103963*.
+Zhang, W., & **Wang, K.** (2020). Parking futures: shared automated vehicles and parking demand reduction trajectories in Atlanta. *Land Use Policy, 91, 103963*.
 
 Peer-Reviewed Conference proceedings
 ....................................
 
-Jia, W., Chen T.D.\mbox{*}, W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRelocate: Analyzing Travelers' Parking Preferences for Private Autonomous Vehicles. Transportation Research Board 100th Annual Meeting.
+Jia, W., Chen T.D., W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRelocate: Analyzing Travelers' Parking Preferences for Private Autonomous Vehicles. Transportation Research Board 100th Annual Meeting.
 
 **Wang, K.**, Zhang, W., Mortveit, H., & Swarup, S. (2020). Improved Travel Demand Modeling with Synthetic Populations. *The 21st International Workshop on Multi-Agent-Based Simulation (MABS2020)*.
 
