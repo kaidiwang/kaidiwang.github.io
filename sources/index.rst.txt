@@ -14,16 +14,15 @@ Kaidi Wang
 	
 |
 
+:position: Assistant Professor
 :Email: kaidi@vt.edu
-:Telephone: (540)739-9577
-:Department: Urban Affairs and Planning
-:Institute: Virginia Tech
-:Address: Architecture Annex, 140 Otey St, Blacksburg, VA 24061
+:Department: Decision Science
+:School: School of Business
+:Institute: Macau University of Science and Technology
+:Address: O-913, Avenida Wai Long,Taipa,Macau
 :Google Scholar: `Kaidi Wang`_ 
 
 .. _Kaidi Wang: https://scholar.google.com/citations?user=qqHVNNcAAAAJ&hl=en
-
-I am a Ph.D. student in Urban Affairs & Planning at Virginia Tech. I transferred from Computer Science after a year in CS department. I received a M.S. degree in Information Security from Beijing University of Posts and Telecommunications in 2017, the B.S. degree Information Security from Xidian University in 2014. :download:`Download my CV <_static/Kaidi-cv/Kaidi.pdf>`
 
 
 Research Interests
@@ -35,9 +34,9 @@ Urban analytics; Emerging transportation technology such as Automated Vehicles; 
 Education
 ---------
 
-:2018 - present: **Ph.D. in Planning, Governance, and Globalization** at Virginia Tech
+:2018 - 2021: **Ph.D. in Planning, Governance, and Globalization** at Virginia Tech
 
-	Dissertation: The mutual effect between Automated Vehicles (AV) and cities: the role of urban forms, AV mode share and social interaction potentional
+	Dissertation: The Dynamics of the Impacts of Automated Vehicles: Urban Form, Mode Choice, and Energy Demand Distribution
 
 	Committee: `Ralph Buehler`_ , `Wenwen Zhang`_ , `T. Donna Chen`_ , `Ralph P. Hall`_ , `Theodore Lim`_ 
 	
@@ -99,6 +98,7 @@ Jia, W., Chen T.D., W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRel
 Teaching Experience
 -------------------
 
+:2021 Fall: :ref:`_ba2021fall`.
 :2021 Spring: Teaching Assistant SPIA3554 Transdisplinary Research Method
 :2020 Spring: Teaching Assistant SPIA 3554 Transdisplinary Research Method
 :2019 Fall: Teaching Assistant UAP3024 Urban and Regional Analysis

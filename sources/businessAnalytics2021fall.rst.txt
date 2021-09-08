@@ -1,0 +1,7 @@
+.. _ba2021fall:
+
+Business Analytics - 2021 Fall
+========================================
+
+
+this is the test page
