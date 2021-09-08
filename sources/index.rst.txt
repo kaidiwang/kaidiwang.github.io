@@ -97,8 +97,6 @@ Jia, W., Chen T.D., W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRel
 
 Teaching Experience
 -------------------
-
-:2021 Fall: :ref:`_ba2021fall`.
 :2021 Spring: Teaching Assistant SPIA3554 Transdisplinary Research Method
 :2020 Spring: Teaching Assistant SPIA 3554 Transdisplinary Research Method
 :2019 Fall: Teaching Assistant UAP3024 Urban and Regional Analysis
@@ -110,6 +108,7 @@ Teaching Experience
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
 
 
 
