@@ -98,7 +98,7 @@ Jia, W., Chen T.D., W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRel
 Teaching
 ....................................
 
-2021 Fall - Business Analytics
+2021 Fall - `Business Analytics <https://github.com/kaidiwang/2021-fall-business-analytics>`_
 
 2021 Fall - Supply Chain Management
 
