@@ -1,0 +1,1445 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ch01 assignment solution &#8212; Kaidi Wang  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystyle.css" />
+    <link rel="stylesheet" href="../../_static/mystyle.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          Kaidi Wang</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../buildWebsite.html">How to build the website</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Kaidi Wang <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../teaching.html">Teaching</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Ch01 assignment solution</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../../_sources/2021fallBusinessAnalytics/solutions/Ch1 - introduction - assignment.ipynb.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Ch01-assignment-solution">
+<h1>Ch01 assignment solution<a class="headerlink" href="#Ch01-assignment-solution" title="Permalink to this headline">¶</a></h1>
+<p>In this assignment, you are required to respond to each of the questions. The corresponding grades for each question are display on the cell. To assist you to finish the assignment, I also upload an example notebook for reference. You can also refer to the API documentation if needed.</p>
+<p>What is your name and student ID? (2pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kaidi Wang&#39;</span><span class="p">,</span> <span class="s1">&#39;ID...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Kaidi Wang ID...
+</pre></div></div>
+</div>
+<p>Q1: Load the document AZ_2013_ACS5 to a dataframe and plot the distribution of the total number of houses (i.e., house_tot) in the block groups in a histogram using the bins [0,80,250,553,869,1020,1500,2200,5000] (20pts)</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;AZ_2013_ACS5.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GEO_ID</th>
+      <th>pop_tot</th>
+      <th>house_vacant</th>
+      <th>house_occupied</th>
+      <th>house_tot</th>
+      <th>hh_tot</th>
+      <th>hh_fm</th>
+      <th>hh_fm_2</th>
+      <th>hh_fm_3</th>
+      <th>hh_fm_4</th>
+      <th>...</th>
+      <th>wkr_cmt_car</th>
+      <th>wkr_cmt_da</th>
+      <th>wkr_cmt_cpl</th>
+      <th>wkr_cmt_transit</th>
+      <th>wkr_cmt_cab</th>
+      <th>wkr_cmt_motor</th>
+      <th>wkr_cmt_bicycle</th>
+      <th>wkr_cmt_walk</th>
+      <th>wkr_cmt_other</th>
+      <th>wkr_home</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1500000US040019426001</td>
+      <td>740</td>
+      <td>188</td>
+      <td>167</td>
+      <td>355</td>
+      <td>167</td>
+      <td>144</td>
+      <td>70</td>
+      <td>20</td>
+      <td>17</td>
+      <td>...</td>
+      <td>100</td>
+      <td>78</td>
+      <td>22</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1500000US040019426002</td>
+      <td>778</td>
+      <td>156</td>
+      <td>195</td>
+      <td>351</td>
+      <td>195</td>
+      <td>156</td>
+      <td>54</td>
+      <td>23</td>
+      <td>39</td>
+      <td>...</td>
+      <td>72</td>
+      <td>57</td>
+      <td>15</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>1</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1500000US040019427001</td>
+      <td>911</td>
+      <td>231</td>
+      <td>249</td>
+      <td>480</td>
+      <td>249</td>
+      <td>178</td>
+      <td>73</td>
+      <td>27</td>
+      <td>38</td>
+      <td>...</td>
+      <td>193</td>
+      <td>179</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1500000US040019427002</td>
+      <td>1864</td>
+      <td>369</td>
+      <td>441</td>
+      <td>810</td>
+      <td>441</td>
+      <td>321</td>
+      <td>70</td>
+      <td>79</td>
+      <td>76</td>
+      <td>...</td>
+      <td>350</td>
+      <td>303</td>
+      <td>47</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>79</td>
+      <td>5</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1500000US040019427003</td>
+      <td>999</td>
+      <td>272</td>
+      <td>224</td>
+      <td>496</td>
+      <td>224</td>
+      <td>168</td>
+      <td>53</td>
+      <td>33</td>
+      <td>21</td>
+      <td>...</td>
+      <td>168</td>
+      <td>115</td>
+      <td>53</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>9</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4173</th>
+      <td>1500000US040270121002</td>
+      <td>761</td>
+      <td>157</td>
+      <td>226</td>
+      <td>383</td>
+      <td>226</td>
+      <td>184</td>
+      <td>63</td>
+      <td>19</td>
+      <td>21</td>
+      <td>...</td>
+      <td>143</td>
+      <td>132</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>49</td>
+      <td>11</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>4174</th>
+      <td>1500000US040279800031</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4175</th>
+      <td>1500000US040279800041</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4176</th>
+      <td>1500000US040279800051</td>
+      <td>816</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4177</th>
+      <td>1500000US040279800061</td>
+      <td>4530</td>
+      <td>28</td>
+      <td>790</td>
+      <td>818</td>
+      <td>790</td>
+      <td>739</td>
+      <td>256</td>
+      <td>174</td>
+      <td>200</td>
+      <td>...</td>
+      <td>2040</td>
+      <td>1259</td>
+      <td>781</td>
+      <td>50</td>
+      <td>0</td>
+      <td>36</td>
+      <td>16</td>
+      <td>896</td>
+      <td>46</td>
+      <td>52</td>
+    </tr>
+  </tbody>
+</table>
+<p>4178 rows × 122 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;GEO_ID1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GEO_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;1500000US0&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GEO_ID</th>
+      <th>pop_tot</th>
+      <th>house_vacant</th>
+      <th>house_occupied</th>
+      <th>house_tot</th>
+      <th>hh_tot</th>
+      <th>hh_fm</th>
+      <th>hh_fm_2</th>
+      <th>hh_fm_3</th>
+      <th>hh_fm_4</th>
+      <th>...</th>
+      <th>wkr_cmt_transit</th>
+      <th>wkr_cmt_cab</th>
+      <th>wkr_cmt_motor</th>
+      <th>wkr_cmt_bicycle</th>
+      <th>wkr_cmt_walk</th>
+      <th>wkr_cmt_other</th>
+      <th>wkr_home</th>
+      <th>newID</th>
+      <th>pct_male</th>
+      <th>GEO_ID1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1500000US040019426001</td>
+      <td>740</td>
+      <td>188</td>
+      <td>167</td>
+      <td>355</td>
+      <td>167</td>
+      <td>144</td>
+      <td>70</td>
+      <td>20</td>
+      <td>17</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>40019426001</td>
+      <td>0.490541</td>
+      <td>40019426001</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1500000US040019426002</td>
+      <td>778</td>
+      <td>156</td>
+      <td>195</td>
+      <td>351</td>
+      <td>195</td>
+      <td>156</td>
+      <td>54</td>
+      <td>23</td>
+      <td>39</td>
+      <td>...</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>1</td>
+      <td>9</td>
+      <td>40019426002</td>
+      <td>0.564267</td>
+      <td>40019426002</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1500000US040019427001</td>
+      <td>911</td>
+      <td>231</td>
+      <td>249</td>
+      <td>480</td>
+      <td>249</td>
+      <td>178</td>
+      <td>73</td>
+      <td>27</td>
+      <td>38</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>5</td>
+      <td>40019427001</td>
+      <td>0.477497</td>
+      <td>40019427001</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1500000US040019427002</td>
+      <td>1864</td>
+      <td>369</td>
+      <td>441</td>
+      <td>810</td>
+      <td>441</td>
+      <td>321</td>
+      <td>70</td>
+      <td>79</td>
+      <td>76</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>79</td>
+      <td>5</td>
+      <td>14</td>
+      <td>40019427002</td>
+      <td>0.497318</td>
+      <td>40019427002</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1500000US040019427003</td>
+      <td>999</td>
+      <td>272</td>
+      <td>224</td>
+      <td>496</td>
+      <td>224</td>
+      <td>168</td>
+      <td>53</td>
+      <td>33</td>
+      <td>21</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>9</td>
+      <td>13</td>
+      <td>40019427003</td>
+      <td>0.465465</td>
+      <td>40019427003</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4173</th>
+      <td>1500000US040270121002</td>
+      <td>761</td>
+      <td>157</td>
+      <td>226</td>
+      <td>383</td>
+      <td>226</td>
+      <td>184</td>
+      <td>63</td>
+      <td>19</td>
+      <td>21</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>49</td>
+      <td>11</td>
+      <td>53</td>
+      <td>40270121002</td>
+      <td>0.404731</td>
+      <td>40270121002</td>
+    </tr>
+    <tr>
+      <th>4174</th>
+      <td>1500000US040279800031</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40279800031</td>
+      <td>NaN</td>
+      <td>40279800031</td>
+    </tr>
+    <tr>
+      <th>4175</th>
+      <td>1500000US040279800041</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40279800041</td>
+      <td>NaN</td>
+      <td>40279800041</td>
+    </tr>
+    <tr>
+      <th>4176</th>
+      <td>1500000US040279800051</td>
+      <td>816</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>40279800051</td>
+      <td>0.982843</td>
+      <td>40279800051</td>
+    </tr>
+    <tr>
+      <th>4177</th>
+      <td>1500000US040279800061</td>
+      <td>4530</td>
+      <td>28</td>
+      <td>790</td>
+      <td>818</td>
+      <td>790</td>
+      <td>739</td>
+      <td>256</td>
+      <td>174</td>
+      <td>200</td>
+      <td>...</td>
+      <td>50</td>
+      <td>0</td>
+      <td>36</td>
+      <td>16</td>
+      <td>896</td>
+      <td>46</td>
+      <td>52</td>
+      <td>40279800061</td>
+      <td>0.701545</td>
+      <td>40279800061</td>
+    </tr>
+  </tbody>
+</table>
+<p>4178 rows × 125 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;house_tot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">553</span><span class="p">,</span><span class="mi">869</span><span class="p">,</span><span class="mi">1020</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">2200</span><span class="p">,</span><span class="mi">5000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x11cc7bb10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_8_1.png" src="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_8_1.png" />
+</div>
+</div>
+<p>Q2: Plot the cumulative distribution of total number of houses. (10pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;house_tot&#39;</span><span class="p">],</span> <span class="n">cumulative</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(array([ 799., 3078., 3891., 4090., 4148., 4163., 4172., 4175., 4177.,
+        4178.]),
+ array([   0.,  410.,  820., 1230., 1640., 2050., 2460., 2870., 3280.,
+        3690., 4100.]),
+ &lt;a list of 10 Patch objects&gt;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_10_1.png" src="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_10_1.png" />
+</div>
+</div>
+<p>Q3: What is the geometric mean of [20,30,34,25,66]? (8pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">66</span><span class="p">])</span>
+<span class="n">a</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+32.02011020588338
+</pre></div></div>
+</div>
+<p>Q4: Impute the mean, median, and mode of the population in census block groups where the GEO_IDs are between 040019426001 and 040030003033. (20pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;GEO_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1500000</td>
+      <td>040019426001</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1500000</td>
+      <td>040019426002</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1500000</td>
+      <td>040019427001</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1500000</td>
+      <td>040019427002</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1500000</td>
+      <td>040019427003</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>4173</th>
+      <td>1500000</td>
+      <td>040270121002</td>
+    </tr>
+    <tr>
+      <th>4174</th>
+      <td>1500000</td>
+      <td>040279800031</td>
+    </tr>
+    <tr>
+      <th>4175</th>
+      <td>1500000</td>
+      <td>040279800041</td>
+    </tr>
+    <tr>
+      <th>4176</th>
+      <td>1500000</td>
+      <td>040279800051</td>
+    </tr>
+    <tr>
+      <th>4177</th>
+      <td>1500000</td>
+      <td>040279800061</td>
+    </tr>
+  </tbody>
+</table>
+<p>4178 rows × 2 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GEO_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;newID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;newID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;newID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+
+<span class="n">df_new</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;newID&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">40019426001</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;newID&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">40030003033</span><span class="p">)]</span>
+<span class="n">df_new</span><span class="p">[</span><span class="s1">&#39;pop_tot&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># df[&#39;newID&#39;] &gt; 40019427002</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+            0             1
+0     1500000  040019426001
+1     1500000  040019426002
+2     1500000  040019427001
+3     1500000  040019427002
+4     1500000  040019427003
+...       ...           ...
+4173  1500000  040270121002
+4174  1500000  040279800031
+4175  1500000  040279800041
+4176  1500000  040279800051
+4177  1500000  040279800061
+
+[4178 rows x 2 columns]
+GEO_ID             object
+pop_tot             int64
+house_vacant        int64
+house_occupied      int64
+house_tot           int64
+                    ...
+wkr_cmt_bicycle     int64
+wkr_cmt_walk        int64
+wkr_cmt_other       int64
+wkr_home            int64
+newID              object
+Length: 123, dtype: object
+
+
+GEO_ID             object
+pop_tot             int64
+house_vacant        int64
+house_occupied      int64
+house_tot           int64
+                    ...
+wkr_cmt_bicycle     int64
+wkr_cmt_walk        int64
+wkr_cmt_other       int64
+wkr_home            int64
+newID               int64
+Length: 123, dtype: object
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1260.1866666666667
+</pre></div></div>
+</div>
+<p>Q5: Impute the population variance of the percent of male (i.e., male/(male+female)). What insights can you get about the distribution of male and female? (20pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pct_male&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pct_male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">ddof</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;pct_male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x13e156190&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_17_1.png" src="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_17_1.png" />
+</div>
+</div>
+<p>Q6: Assume you want to know about the variance of the low-income households (i.e., income &lt; 50k, corresponding to columns hh_incm_0k, hh_incm_10k, ……, hh_incm_45k). You decide to extract 500 block groups and impute the sample variance to gain insights. How do you achieve the goal using Python and the dataset provided? Please respond with a sample script snippet and the result. Notice that sample variance is different from population variance.(20pts)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hh_incm_0k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_10k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_15k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;hh_incm_20k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_25k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_30k&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;hh_incm_35k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_40k&#39;</span><span class="p">,</span> <span class="s1">&#39;hh_incm_45k&#39;</span><span class="p">]</span>
+<span class="n">df_new</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+<span class="c1"># df[&#39;hh_incm_0k&#39;] + df[&#39;hh_incm_10k&#39;] + .... + df[&#39;hh_incm_45k&#39;]</span>
+<span class="n">df_count</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">rand_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">replace</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rand_idx</span><span class="p">)</span>
+<span class="n">df_low</span> <span class="o">=</span> <span class="n">df_count</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">rand_idx</span><span class="p">]</span>
+<span class="n">df_low</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[606 450 742 230 341 792 531 374 884  40 299 809 129 233 425 936 264 338
+ 536 517 569 950 947 146 714   3 777 317 784 609 575 813 535 296 602 900
+ 172   2 954 782 321 250 112 828 252 132 799  77 618 788 261  70 895 521
+ 706 204 211 492 433  31 283 971  53 869 608 655 613 508 383 229 493 501
+ 541 642 760 442 115 865  47 131 671 107 983 731 342  56 808 581 359 836
+ 461 478 806 130 880 141 556 320 552 205 258 943 666 595 392 168 605 292
+ 570 240 688 976  33 431 308 643 183 867 907 548 271 764 638 594 565 590
+ 919 585 202 312   5 407 639 627 821 723 547 464 968 935 203 816  96 126
+ 452 617 344 939 173 437 117 251  76  14  74 922 124 244 482 963 484 832
+ 496 373 399 795 319 998 916 879 801 736 684 889 267 804 491 664 238 734
+ 494 353 346 758 398 289 990 506 436 343 509 542 413 375 986 243 291 811
+ 337 913 750 991 676 311   9 237 307 404 466 167 427 368 896 408 654 160
+ 967 318 393 962 127 209 208 820 839 516 193 996 394 698 825 418 596 125
+ 846 733 759 456 348 274 893 831 854 285 545 152 778 853 674 689 245  45
+ 716 973 800 620 449 847 263 446 109 771 101 391 164  41 779 780 330 824
+ 988 474 268 144  79 826 297 586 668 163 276 191 453 709 571 776 754  44
+ 231 772 136 775 732 953 997 257 212 904 619  71 110 877 598 166 938 206
+ 435 473 783 357 440 415 815  66 150 621 372 279 405  99 615 186  93 786
+ 944  27 489 866 171 958 669  88 667 420 315 417 651  51 735 677 116 686
+ 910 323 347   7 259 744 149 929 645 533 762 897 756 830 184 379  49 728
+ 803 378 277 567 699 236 924 226  21 510 306 665  60 729 717 797 367 807
+ 487 539 937  63 861 369 692 844 280 694 524 589 139 345 823 465 945 114
+ 592 457  30   6 554 691 719 757 994 743 416 955  92 863  54 180 708  84
+ 194 859 221 537 647 479 540 210 662 864  52 201 558 610 989 624 480 802
+ 964 891 978  81 361 607 761 905 878 158 386 527 980 985 128 402 389  20
+ 755 423 503 752 120  61 102 475 653 898 532 833  12 529 105 906 628 956
+  46 787 817 812 438 630 690 543 948 909 370 488 246 961 721 969 738 293
+  67 886 576  10 354   8 629 855 940 175 701 703  65 856]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+25987.52679759519
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_low</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x13e0b3ed0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_20_1.png" src="../../_images/2021fallBusinessAnalytics_solutions_Ch1_-_introduction_-_assignment_20_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Kaidi Wang.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
