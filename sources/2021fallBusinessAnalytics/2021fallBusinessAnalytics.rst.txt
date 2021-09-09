@@ -8,7 +8,7 @@ Ch01 Introduction
 
 :download:`slide <Ch01/Ch01_introduction.pptx>`
 
-:download:`<solutions/Ch1 - introduction - assignment.ipynb>`
+:download:`<solutions/Ch01 - introduction - assignment.ipynb>`
 
 
 Ch02 Descriptive Statistics
