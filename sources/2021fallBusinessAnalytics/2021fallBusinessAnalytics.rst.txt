@@ -20,7 +20,7 @@ Ch02 Descriptive Statistics
 
 :download:`Ch02 treadwear2 <Ch02/Ch02 treadwear2.csv>`
 
-:download:`Ch02 example <Ch02/example.ipynb>`
+.. :download:`Ch02 example <Ch02/example.ipynb>`
 
 
 Ch03 Data Visualization
@@ -30,10 +30,16 @@ Ch03 Data Visualization
 
 :download:`Ch03 restaurant <Ch03/restaurant.csv>`
 
-:download:`Ch03 example <Ch03/example.ipynb>`
+.. :download:`Ch03 example <Ch03/example.ipynb>`
 
 
 
+.. doctree::
+	:maxdepth: 1
+	:caption: Notebooks
+
+	Ch02/example
+	Ch03/example
 
 
 

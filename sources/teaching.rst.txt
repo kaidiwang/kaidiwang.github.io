@@ -1,10 +1,9 @@
 Teaching
 ============
 
+2021 Fall - BusinessAnalytics
 
-:doc:`2021fallBusinessAnalytics/2021fallBusinessAnalytics`
-
-:doc:`2021fallSupplyChainManagement/2021fallSupplyChainManagement`
+2021 Fall - SupplyChainManagement
 
 2021 Spring - Teaching Assistant SPIA3554 Transdisplinary Research Method
 
