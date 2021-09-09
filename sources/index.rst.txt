@@ -11,15 +11,14 @@ Kaidi Wang
 .. image:: _static/portrait.png
 	:height: 150px
 	:align: left
-	
-|
 
-:position: Assistant Professor
+:Position: Assistant Professor
 :Email: kaidi@vt.edu
 :Department: Decision Science
 :School: School of Business
 :Institute: Macau University of Science and Technology
 :Address: O-913, Avenida Wai Long,Taipa,Macau
+:Office hour: 3 pm - 4 pm, Mon. - Thur.
 :Google Scholar: `Kaidi Wang`_ 
 
 .. _Kaidi Wang: https://scholar.google.com/citations?user=qqHVNNcAAAAJ&hl=en
@@ -95,20 +94,11 @@ Jia, W., Chen T.D., W. Zhang, Lim, L., **Wang, K.**, Mirla, A. Willingness-toRel
 
 **Wang, K.**, Xie, W., & Zhang, W. (2019). Parking Space Optimization in the Era of Private Automated Vehicles (No. 19-05868). *Transportation Research Board 98th Annual Meeting*.
 
-Teaching Experience
--------------------
-:2021 Spring: Teaching Assistant SPIA3554 Transdisplinary Research Method
-:2020 Spring: Teaching Assistant SPIA 3554 Transdisplinary Research Method
-:2019 Fall: Teaching Assistant UAP3024 Urban and Regional Analysis
-:2019 Spring: Teaching Assistant SPIA3554 Transdisplinary Research Method
-:2017 Fall: Teaching Assistant Introduction to C++ programming
-
-
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+	:maxdepth: 1
 
+	teaching
 
 
 

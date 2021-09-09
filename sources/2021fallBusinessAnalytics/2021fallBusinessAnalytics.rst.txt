@@ -1,0 +1,46 @@
+2021 Fall - Business Analytics
+==========================================
+
+
+
+Ch01 Introduction
+------------------------
+
+:download:`slide <Ch01/Ch01_introduction.pptx>`
+
+
+Ch02 Descriptive Statistics
+------------------------------
+
+:download:`slide <Ch02/Ch02_descriptive statistics.pptx>`
+
+:download:`Ch02 treadwear1 <Ch02/Ch02 treadwear1.csv>`
+
+:download:`Ch02 treadwear2 <Ch02/Ch02 treadwear2.csv>`
+
+
+Ch03 Data Visualization
+---------------------------
+
+:download:`slide <Ch03/Ch03_Data visualization.pptx>`
+
+:download:`Ch03 restaurant <Ch03/restaurant.csv>`
+
+
+Notebooks
+------------
+
+.. toctree::
+	:maxdepth: 1
+	:caption: notebooks
+
+	solutions/Ch1 - introduction - assignment
+	Ch02/example
+	Ch03/example
+
+
+
+
+
+
+	

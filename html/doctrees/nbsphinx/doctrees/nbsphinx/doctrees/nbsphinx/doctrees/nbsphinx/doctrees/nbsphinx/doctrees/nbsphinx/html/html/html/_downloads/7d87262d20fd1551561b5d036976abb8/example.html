@@ -1,0 +1,1358 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fill missing values in Blakely Tire data &#8212; Kaidi Wang  documentation</title>
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../../../../../../../../../../../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../../../../../../../../../../../_static/mystyle.css" />
+    <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../_static/mystyle.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../../../../../../../../../../../../../../../../" src="../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../../../../../../../../../../../../../../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../../../../../../../../../../../../../../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../../../../../../../../../../../../../../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../../../../../../../../../../../../../../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../../../../../../../../../../../../../../../index.html">
+          Kaidi Wang</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../../../../../../../../../../../../../../../../../buildWebsite.html">How to build the website</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../../../../../../../../../../../../../../../../index.html">Kaidi Wang <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../teaching.html">Teaching</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Fill missing values in Blakely Tire data</a></li>
+<li><a class="reference internal" href="#Identify-outliers">Identify outliers</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../../../../../../../../../../../../../../../../../../_sources/html/doctrees/nbsphinx/doctrees/nbsphinx/doctrees/nbsphinx/doctrees/nbsphinx/doctrees/nbsphinx/doctrees/nbsphinx/html/html/html/_downloads/7d87262d20fd1551561b5d036976abb8/example.ipynb.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../../../../../../../../../../../../../../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># load data</span>
+<span class="n">df_tire</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Ch02 treadwear2.csv&#39;</span><span class="p">,</span>
+                      <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">,</span> <span class="s1">&#39;Position on Automobile&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">,</span> <span class="s1">&#39;Tread Depth&#39;</span><span class="p">,</span> <span class="s1">&#39;Miles&#39;</span><span class="p">])</span>
+<span class="c1"># drop the rows with all Nan values</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df_tire</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>13391487</td>
+      <td>LR</td>
+      <td>58.4</td>
+      <td>2.2</td>
+      <td>2805.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>21678308</td>
+      <td>LR</td>
+      <td>17.3</td>
+      <td>8.3</td>
+      <td>39371.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18414311</td>
+      <td>RR</td>
+      <td>16.5</td>
+      <td>8.6</td>
+      <td>13367.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>19778103</td>
+      <td>RR</td>
+      <td>8.2</td>
+      <td>9.8</td>
+      <td>1931.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>16355454</td>
+      <td>RR</td>
+      <td>13.7</td>
+      <td>8.9</td>
+      <td>23992.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>451</th>
+      <td>17221343</td>
+      <td>LR</td>
+      <td>19.7</td>
+      <td>8.1</td>
+      <td>19572.0</td>
+    </tr>
+    <tr>
+      <th>452</th>
+      <td>9857663</td>
+      <td>LF</td>
+      <td>21.6</td>
+      <td>7.1</td>
+      <td>5293.0</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>2122934</td>
+      <td>LF</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>454</th>
+      <td>9937888</td>
+      <td>LR</td>
+      <td>30.4</td>
+      <td>6.5</td>
+      <td>57032.0</td>
+    </tr>
+    <tr>
+      <th>455</th>
+      <td>6779970</td>
+      <td>RR</td>
+      <td>20.1</td>
+      <td>7.9</td>
+      <td>17091.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>456 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># impute the 75th percentile of the Life of Tire (Months)</span>
+<span class="n">pct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">],</span> <span class="mi">75</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pct</span><span class="p">)</span>
+
+<span class="c1"># impute the 1st quartile of the Life of Tire (Months)</span>
+<span class="n">qtl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">],</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">qtl</span><span class="p">)</span>
+
+<span class="c1"># impute the zscore</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">zscore</span><span class="p">(</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+30.4
+10.3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ 1.08933548, -0.20323485, -0.22839437, -0.48942438, -0.31645269,
+        0.91321884, -0.28500329, -0.55232318,  1.14279946, -0.37935149,
+       -0.40451101, -0.50514908, -0.20952473, -0.50514908,  1.42269911,
+       -0.13404617, -0.05856761, -0.49256932,  0.02005589,  0.06722999,
+       -0.18751015,  0.25592639, -0.32903245, -0.07743725, -0.16864051,
+       -0.34161221, -0.69070054, -0.20952473,  0.66791352,  0.25592639,
+       -0.41709077, -0.42338065, -0.50514908, -0.28500329, -0.43281547,
+       -0.25984377, -0.32903245,  1.42269911, -0.66239608, -0.6089321 ,
+       -0.09001701, -0.42338065,  0.41946326, -0.35733691, -0.59006246,
+        0.16786807,  0.6899281 , -0.6403815 , -0.42338065, -0.19380003,
+        0.20246241, -0.66239608, -0.6089321 , -0.43910535, -0.38249643,
+        0.02005589,  0.02005589, -0.68126572, -0.34161221, -0.36677173,
+        0.19931747, -0.61522198, -0.47684463, -0.59006246, -0.31645269,
+       -0.21895955, -0.62780174, -0.39193125,  0.49808676, -0.24097413,
+        0.41946326,  0.06722999, -0.55546812, -0.30072799, -0.48942438,
+        0.46034748, -0.40451101, -0.31645269,  1.55793153,  0.49808676,
+       -0.47684463, -0.62780174, -0.06800243,  0.42889808, -0.50514908,
+       -0.20323485,  0.50752158, -0.12775629,  0.17101301, -0.55232318,
+       -0.26298871, -0.47684463, -0.43281547, -0.39822113, -0.59006246,
+        0.68049328, -0.36362679,  0.11440409, -0.52716366, -0.07743725,
+       -0.6403815 ,  0.10811421, -0.52401872, -0.30072799, -0.50514908,
+        0.46034748, -0.39193125, -0.25984377,  0.22133205, -0.50514908,
+       -0.27556847, -0.26298871,  0.20246241,  0.27479603,  0.49808676,
+       -0.13404617, -0.43281547,  0.68049328, -0.60264222, -0.45797499,
+       -0.39193125, -0.30072799, -0.61522198, -0.37935149,  0.34083977,
+       -0.59949728,  0.16786807,  0.25907133,  0.22133205, -0.27871341,
+        0.91321884, -0.37935149, -0.07743725, -0.07429231, -0.13404617,
+       -0.52401872,  1.26859705,  1.08933548, -0.50514908, -0.43596041,
+        0.8628998 , -0.49256932, -0.43596041,  0.99498728,  0.16786807,
+       -0.27871341, -0.16864051,  0.22133205,  0.05779517, -0.59949728,
+       -0.14348099, -0.55546812,  0.6899281 , -0.6089321 ,  1.01385692,
+       -0.60264222, -0.50514908,  1.34407561,  0.99498728, -0.09001701,
+       -0.14977087, -0.14977087,  0.42889808, -0.07114737, -0.43281547,
+       -0.44225029,  0.20875229,  1.14279946, -0.43281547, -0.39822113,
+       -0.14348099,  0.06722999, -0.05856761, -0.47684463,  0.17415795,
+        0.17415795,  0.18359277, -0.52716366, -0.07429231,  0.66791352,
+       -0.61522198, -0.22839437, -0.66239608,  0.05779517, -0.43281547,
+       -0.27556847, -0.32903245,  1.55793153, -0.68126572, -0.5932074 ,
+        0.22133205, -0.35733691,  0.20246241, -0.60264222, -0.28500329,
+       -0.25984377, -0.32903245,  0.6899281 , -0.22839437, -0.25355389,
+        0.42889808, -0.38249643,  0.10811421, -0.07114737,  0.63017424,
+        1.42269911,  0.24020169, -0.34161221, -0.35733691, -0.27556847,
+       -0.07114737, -0.20323485, -0.19380003,  0.41946326, -0.20952473,
+       -0.31645269,  0.14585349,  0.69936292,  0.07666481,  0.34083977,
+       -0.14348099,  0.63017424, -0.42338065,  1.34407561, -0.30072799,
+       -0.07114737,  0.17415795, -0.13404617, -0.19380003,  0.6899281 ,
+       -0.62780174, -0.05856761,  0.91321884,  0.07666481,  0.24020169,
+        0.8628998 , -0.31645269, -0.36677173,  0.19931747, -0.27556847,
+       -0.51772884, -0.40451101,  0.16786807,  0.11440409, -0.11517653,
+       -0.35733691,  1.08933548, -0.50514908, -0.47684463,  0.48236206,
+        0.24649157,  0.69936292,  0.11440409, -0.42338065,  0.14585349,
+       -0.36362679,  0.41946326,  0.69936292, -0.26298871, -0.50514908,
+       -0.42338065,  0.20875229,  0.91321884,  1.34407561,  0.42889808,
+       -0.21895955,  0.49808676,  0.19931747, -0.25355389,  0.20246241,
+       -0.38249643,  1.01385692, -0.27556847,  0.25592639, -0.20952473,
+       -0.37935149, -0.07429231, -0.06800243,  0.10811421, -0.14348099,
+        0.24020169, -0.55546812,  0.25907133, -0.11517653, -0.5303086 ,
+        0.17101301, -0.05856761, -0.36677173, -0.31645269, -0.39193125,
+        0.17101301, -0.44225029,  1.42269911, -0.6403815 ,  0.46034748,
+       -0.43281547, -0.36362679, -0.49256932,  0.13012879, -0.52401872,
+        0.48236206,  0.17101301,  0.66791352,  0.14585349, -0.27556847,
+       -0.34161221, -0.36677173,  0.34083977, -0.34161221, -0.47684463,
+        0.20875229,  0.68049328, -0.31645269, -0.06800243, -0.27871341,
+       -0.60264222, -0.47684463, -0.59006246,  1.26859705, -0.52401872,
+       -0.14977087,  0.24649157,  1.01385692, -0.25984377,  0.20246241,
+       -0.43910535, -0.20323485, -0.43910535,  0.07666481, -0.40451101,
+        0.50752158, -0.55232318, -0.34161221, -0.43910535, -0.62780174,
+       -0.5303086 ,  0.63017424, -0.14977087,  2.7435739 , -0.26298871,
+       -0.36362679, -0.25355389, -0.09001701, -0.43596041, -0.52716366,
+        0.99498728, -0.66239608,  0.68049328, -0.52716366,  0.66791352,
+       -0.20952473, -0.42338065,  0.13012879, -0.47684463, -0.59949728,
+        1.26859705,  0.50752158, -0.69070054, -0.07743725, -0.19380003,
+       -0.34161221,  0.24649157, -0.32903245,  0.48236206, -0.59949728,
+       -0.16864051,  0.05779517, -0.68126572, -0.24097413, -0.41709077,
+        0.25907133, -0.55546812,  0.27479603, -0.5303086 ,  0.8628998 ,
+       -0.26298871, -0.21895955,  1.34407561, -0.50514908, -0.24097413,
+       -0.49256932, -0.14348099,  0.02005589,  0.10811421, -0.50514908,
+        0.8628998 , -0.48942438, -0.6403815 , -0.27871341,  1.01385692,
+       -0.34161221,  0.14585349, -0.43596041, -0.16864051, -0.27556847,
+        0.24649157, -0.20323485, -0.41709077, -0.51772884,  1.55793153,
+       -0.20323485, -0.55232318,  0.34083977,  0.27479603, -0.6089321 ,
+       -0.31645269, -0.38249643,  1.08933548, -0.12775629,  0.17415795,
+       -0.26298871, -0.43281547, -0.21895955,  1.55793153, -0.69070054,
+        0.19931747, -0.11517653,  0.07666481, -0.68126572, -0.17807533,
+        0.13012879,  0.69936292, -0.41709077, -0.44225029, -0.12775629,
+        0.25907133,  0.6584787 ,  0.06722999, -0.44225029, -0.27556847,
+       -0.48942438, -0.51772884,  1.14279946, -0.42338065,  1.26859705,
+       -0.25355389, -0.51772884, -0.20323485, -0.61522198,  0.25592639,
+       -0.24097413,  0.99498728,  0.48236206, -0.26298871, -0.22839437,
+        0.05779517, 18.15377972, -0.26298871, -0.20323485,  0.63017424,
+        0.50752158, -0.12775629, -0.06800243, -0.39822113,  0.20875229,
+       -0.11517653])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># plot boxplot</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">,</span> <span class="s1">&#39;Miles&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/kaidiwang/.pyenv/versions/3.7.4/lib/python3.7/site-packages/numpy/core/_asarray.py:83: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  return array(a, dtype, copy=False, order=order)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x13dfd6750&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_3_2.png" src="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_3_2.png" />
+</div>
+</div>
+<div class="section" id="Fill-missing-values-in-Blakely-Tire-data">
+<h1>Fill missing values in Blakely Tire data<a class="headerlink" href="#Fill-missing-values-in-Blakely-Tire-data" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># get count of Nan values for each column</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ID Number                 0
+Position on Automobile    0
+Life of Tire (Months)     0
+Tread Depth               0
+Miles                     1
+dtype: int64
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># examine the record with Nan values</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Miles&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td>3354942</td>
+      <td>LF</td>
+      <td>17.1</td>
+      <td>8.5</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># find information of other tires on the vehicle</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3354942</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td>3354942</td>
+      <td>LF</td>
+      <td>17.1</td>
+      <td>8.5</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>3354942</td>
+      <td>RF</td>
+      <td>21.4</td>
+      <td>7.7</td>
+      <td>33254.0</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>3354942</td>
+      <td>RR</td>
+      <td>21.4</td>
+      <td>7.8</td>
+      <td>33254.0</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>3354942</td>
+      <td>LR</td>
+      <td>21.4</td>
+      <td>7.7</td>
+      <td>33254.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="Identify-outliers">
+<h1>Identify outliers<a class="headerlink" href="#Identify-outliers" title="Permalink to this headline">¶</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># describe the dataset</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>4.560000e+02</td>
+      <td>456.000000</td>
+      <td>456.000000</td>
+      <td>455.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.128225e+07</td>
+      <td>23.762281</td>
+      <td>7.640789</td>
+      <td>25440.215385</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6.129054e+06</td>
+      <td>31.832032</td>
+      <td>2.505844</td>
+      <td>23600.209480</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>8.044100e+04</td>
+      <td>1.800000</td>
+      <td>0.000000</td>
+      <td>206.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>6.559652e+06</td>
+      <td>10.300000</td>
+      <td>6.400000</td>
+      <td>7299.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.126800e+07</td>
+      <td>17.200000</td>
+      <td>8.400000</td>
+      <td>19237.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.628981e+07</td>
+      <td>30.400000</td>
+      <td>9.500000</td>
+      <td>37419.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.181757e+07</td>
+      <td>601.000000</td>
+      <td>16.700000</td>
+      <td>107237.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The mean and standard deviation for life of tire, tread depth, and miles are reasonable. But the maximum of life of tire if not reasonable.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># find the vehicle where life of tire is 601 months.</span>
+<span class="n">veh_id</span> <span class="o">=</span> <span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">601</span><span class="p">,</span> <span class="s1">&#39;ID Number&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">veh_id</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">veh_id</span><span class="p">))</span>
+<span class="n">veh_id</span> <span class="o">=</span> <span class="n">veh_id</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">veh_id</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+446    8696859
+Name: ID Number, dtype: int64 &lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>8696859</td>
+      <td>LF</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>8696859</td>
+      <td>RF</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>432</th>
+      <td>8696859</td>
+      <td>RR</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>8696859</td>
+      <td>LR</td>
+      <td>601.0</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># any other abnormal life of tire?</span>
+<span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x1340539d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_12_1.png" src="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_12_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># find records with life of tire longer than 100 months</span>
+<span class="n">df_tire</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>338</th>
+      <td>2122934</td>
+      <td>LR</td>
+      <td>111.0</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>8696859</td>
+      <td>LR</td>
+      <td>601.0</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_tire</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2122934</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>93</th>
+      <td>2122934</td>
+      <td>RF</td>
+      <td>11.1</td>
+      <td>9.4</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>2122934</td>
+      <td>RR</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>338</th>
+      <td>2122934</td>
+      <td>LR</td>
+      <td>111.0</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>2122934</td>
+      <td>LF</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># correct the two errors with wrong life of tire</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2122934</span><span class="p">,</span> <span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">11.1</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8696859</span><span class="p">,</span> <span class="s1">&#39;Life of Tire (Months)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">60.1</span>
+<span class="n">df_tire</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tire</span><span class="p">[</span><span class="s1">&#39;ID Number&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2122934</span><span class="p">,</span> <span class="mi">8696859</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID Number</th>
+      <th>Position on Automobile</th>
+      <th>Life of Tire (Months)</th>
+      <th>Tread Depth</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>8696859</td>
+      <td>LF</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>2122934</td>
+      <td>RF</td>
+      <td>11.1</td>
+      <td>9.4</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>8696859</td>
+      <td>RF</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>2122934</td>
+      <td>RR</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>338</th>
+      <td>2122934</td>
+      <td>LR</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+    <tr>
+      <th>432</th>
+      <td>8696859</td>
+      <td>RR</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>8696859</td>
+      <td>LR</td>
+      <td>60.1</td>
+      <td>2.0</td>
+      <td>26129.0</td>
+    </tr>
+    <tr>
+      <th>453</th>
+      <td>2122934</td>
+      <td>LF</td>
+      <td>11.1</td>
+      <td>9.3</td>
+      <td>21000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_tire</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Tread Depth&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Miles&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x134f8d450&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_16_1.png" src="../../../../../../../../../../../../../../../../../../_images/html_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_doctrees_nbsphinx_html_html_html__downloads_7d87262d20fd1551561b5d036976abb8_example_16_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Kaidi Wang.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
